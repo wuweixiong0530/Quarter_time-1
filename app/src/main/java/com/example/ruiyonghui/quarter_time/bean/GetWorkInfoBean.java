@@ -15,6 +15,7 @@ public class GetWorkInfoBean {
      * data : {"user":{"age":"18","fans":"null","follow":false,"icon":null,"nickname":null,"praiseNum":"null"},"worksEntities":[]}
      */
 
+
     private String msg;
     private String code;
     private DataBean data;
