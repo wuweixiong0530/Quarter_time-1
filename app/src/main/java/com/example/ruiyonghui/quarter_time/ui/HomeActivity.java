@@ -52,6 +52,7 @@ public class HomeActivity extends AppCompatActivity {
     private TextView mHomeText;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
