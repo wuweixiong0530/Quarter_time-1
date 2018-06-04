@@ -11,11 +11,14 @@ import android.view.ViewGroup;
 import com.example.ruiyonghui.quarter_time.R;
 
 public class DuanZiFragment extends Fragment {
-@Nullable
-@Override
-public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.duanzifragment, container, false);
+
+
+
         return view;
-        }
-        }
+    }
+}
