@@ -58,6 +58,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         initView();
 
+
         mBottomtabbar.init(getSupportFragmentManager())
                 .setImgSize(50, 50)
                 .setFontSize(8)
