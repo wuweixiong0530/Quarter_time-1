@@ -1,47 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.HomeActivity">
 
 
-
     <RelativeLayout
-        android:background="#03A9F4"
-        android:padding="15dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#03A9F4"
+        android:padding="15dp">
 
         <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/touxiang"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
-            fresco:roundAsCircle="true"
-            android:id="@+id/touxiang"
             fresco:placeholderImage="@drawable/touxiang"
-            android:layout_width="55dp"
-            android:layout_height="55dp" />
+            fresco:roundAsCircle="true" />
 
         <TextView
-            android:textStyle="bold"
-            android:textSize="23sp"
-            android:textColor="#fff"
+
+            android:id="@+id/home_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="推荐"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textColor="#fff"
+            android:textSize="23sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/edit"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/raw_1500034665"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/raw_1500034665" />
     </RelativeLayout>
+
+    <com.hjm.bottomtabbar.BottomTabBar
+        android:id="@+id/bottomtabbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.hjm.bottomtabbar.BottomTabBar>
+
 
 </LinearLayout>

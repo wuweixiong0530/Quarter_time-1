@@ -3,8 +3,8 @@ package com.example.ruiyonghui.quarter_time.ui;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,13 +43,38 @@ public class HomeActivity extends AppCompatActivity {
     SimpleDraweeView touxiang;
     @BindView(R.id.edit)
     ImageView edit;
+    @BindView(R.id.bottomtabbar)
+    BottomTabBar mBottomtabbar;
     private SlidingMenu menu;
+    /**
+     * 推荐
+     */
+    private TextView mHomeText;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        initView();
+
+        mBottomtabbar.init(getSupportFragmentManager())
+                .setImgSize(50, 50)
+                .setFontSize(8)
+                .setTabPadding(4, 6, 10)
+                .setChangeColor(Color.RED, Color.DKGRAY)
+                .addTabItem("推荐", R.drawable.raw_1500085367, RecommendFragment.class)
+                .addTabItem("段子", R.drawable.raw_1500085327, DuanZiFragment.class)
+                .addTabItem("视频", R.drawable.raw_1500083686, VideoFragment.class)
+                .isShowDivider(false)
+                .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
+                    @Override
+                    public void onTabChange(int position, String name, View view) {
+                        mHomeText.setText(name);
+                    }
+
+                });
+
 
         //new出SlidingMenu对象
         menu = new SlidingMenu(this);
@@ -119,4 +144,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    private void initView() {
+        mHomeText = (TextView) findViewById(R.id.home_text);
+    }
 }
