@@ -1,6 +1,10 @@
 package com.example.ruiyonghui.quarter_time.module;
 
 import com.example.ruiyonghui.quarter_time.net.Api;
+import com.example.ruiyonghui.quarter_time.net.LoginApi;
+import com.example.ruiyonghui.quarter_time.net.LoginApiService;
+import com.example.ruiyonghui.quarter_time.net.RegisterApi;
+import com.example.ruiyonghui.quarter_time.net.RegisterApiService;
 import com.example.ruiyonghui.quarter_time.untils.MyInterceptor;
 
 import java.util.concurrent.TimeUnit;
@@ -30,11 +34,17 @@ public class HttpModule {
                 .client(builder.build());
     }
 
-//    @Provides
-//    AdApi provideAdApi(Retrofit.Builder builder) {
-////        //builder.addInterceptor(new MyInterceptor());
-//        Retrofit retrofit = builder.build();
-//        AdApiService adApiService = retrofit.create(AdApiService.class);
-//        return AdApi.getAdApi(adApiService);
-//    }
+    @Provides
+    LoginApi provideLoginApi(Retrofit.Builder builder) {
+        Retrofit retrofit = builder.build();
+        LoginApiService loginApiService = retrofit.create(LoginApiService.class);
+        return LoginApi.getLoginApi(loginApiService);
+    }
+    @Provides
+    RegisterApi provideRegisterApi(Retrofit.Builder builder) {
+        Retrofit retrofit = builder.build();
+        RegisterApiService registerApiService = retrofit.create(RegisterApiService.class);
+        return RegisterApi.getRegisterApi(registerApiService);
+    }
+
 }

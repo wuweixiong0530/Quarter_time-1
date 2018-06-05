@@ -1,5 +1,6 @@
 package com.example.ruiyonghui.quarter_time.ui;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -27,9 +28,11 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         bottomTabBar.init(getSupportFragmentManager())
+                .setChangeColor( Color.BLUE, Color.DKGRAY)
                 .setImgSize(40, 40)//图片大小
                 .addTabItem("推荐", R.drawable.raw_1500085367, RecommendFragment.class)
                 .addTabItem("段子", R.drawable.raw_1500085327, DuanZiFragment.class)
                 .addTabItem("视频", R.drawable.raw_1500083686, VideoFragment.class);
+
     }
 }

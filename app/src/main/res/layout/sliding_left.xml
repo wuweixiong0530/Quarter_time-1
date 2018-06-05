@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
+    android:clickable="true"
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#d2a0df"
+        android:background="@drawable/touxiangb"
         android:orientation="vertical">
 
         <LinearLayout
@@ -26,6 +27,7 @@
                 android:layout_height="80dp"
                 android:layout_gravity="center_vertical"
                 fresco:placeholderImage="@drawable/touxiang"
+                android:focusable="true"
                 fresco:roundAsCircle="true" />
 
             <TextView
@@ -242,6 +244,7 @@
                     android:id="@+id/img_zuo"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    android:layout_marginLeft="60dp"
                     fresco:placeholderImage="@drawable/raw_1499947056" />
 
                 <TextView
@@ -249,6 +252,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/img_zuo"
                     android:text="我的作品"
+                    android:layout_marginLeft="40dp"
                     android:textColor="#383838"
                     android:textSize="18sp" />
             </RelativeLayout>

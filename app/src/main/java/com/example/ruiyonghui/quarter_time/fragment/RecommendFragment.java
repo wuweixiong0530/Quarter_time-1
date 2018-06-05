@@ -1,5 +1,6 @@
 package com.example.ruiyonghui.quarter_time.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.ruiyonghui.quarter_time.R;
+import com.example.ruiyonghui.quarter_time.login.LoginHomeActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
@@ -20,8 +22,6 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
     SimpleDraweeView touxiang;
     TextView homeText;
     ImageView edit;
-
-
     SlidingMenu menu;
     /**
      * 推荐
@@ -51,13 +51,12 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         menu = new SlidingMenu(getActivity());
         //设置侧滑的方向.左侧
         menu.setMode(SlidingMenu.LEFT);
         // 设置触摸屏幕的模式
         menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-
+        menu.setTouchModeBehind(SlidingMenu.TOUCHMODE_FULLSCREEN);
         // 设置滑动完剩余的宽度
         menu.setBehindOffset(210);
         // 设置渐入渐出效果的值
@@ -66,8 +65,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
         menu.attachToActivity(getActivity(), SlidingMenu.SLIDING_WINDOW);
         //为侧滑菜单设置布局
         View leftView = View.inflate(getContext(), R.layout.sliding_left, null);
-        menu.setMenu(R.layout.sliding_left);
-
+        menu.setMenu(leftView);
         //设置侧滑页面的头像展示
         imageTouXiang = leftView.findViewById(R.id.my_image_view);
         my_attention = leftView.findViewById(R.id.my_attention);//关注
@@ -77,6 +75,14 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
         night_mode = leftView.findViewById(R.id.night_mode);//夜间模式
         my_works = leftView.findViewById(R.id.my_works);//我的作品
         setting = leftView.findViewById(R.id.setting);//设置
+        imageTouXiang.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),LoginHomeActivity.class);
+                startActivity(intent  );
+            }
+        } );
+
     }
 
     @Override
@@ -90,6 +96,9 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
             case R.id.touxiang:
                 menu.showMenu();
                 break;
+//            case R.id.my_image_view:
+//
+//                break;
             case R.id.edit:
                 break;
         }

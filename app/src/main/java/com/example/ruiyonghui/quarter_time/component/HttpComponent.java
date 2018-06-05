@@ -3,6 +3,8 @@ package com.example.ruiyonghui.quarter_time.component;
 import com.example.ruiyonghui.quarter_time.fragment.DuanZiFragment;
 import com.example.ruiyonghui.quarter_time.fragment.RecommendFragment;
 import com.example.ruiyonghui.quarter_time.fragment.VideoFragment;
+import com.example.ruiyonghui.quarter_time.login.LoginActivity;
+import com.example.ruiyonghui.quarter_time.login.RegistActivity;
 import com.example.ruiyonghui.quarter_time.module.HttpModule;
 
 import dagger.Component;
@@ -13,4 +15,6 @@ public interface HttpComponent {
 //    void inject(RecommendFragment recommendFragment);
 //    void inject(DuanZiFragment duanZiFragment);
 //    void inject(VideoFragment videoFragment);
+      void inject(LoginActivity loginActivity);
+      void inject(RegistActivity registActivity);
 }

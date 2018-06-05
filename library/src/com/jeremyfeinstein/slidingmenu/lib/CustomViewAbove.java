@@ -695,7 +695,7 @@ public class CustomViewAbove extends ViewGroup {
 			int index = MotionEventCompat.getActionIndex(ev);
 			mActivePointerId = MotionEventCompat.getPointerId(ev, index);
 			mLastMotionX = mInitialMotionX = ev.getX();
-			break;
+			return mQuickReturn;
 		case MotionEvent.ACTION_MOVE:
 			if (!mIsBeingDragged) {	
 				determineDrag(ev);
