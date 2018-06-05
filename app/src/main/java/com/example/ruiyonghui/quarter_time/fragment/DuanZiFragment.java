@@ -1,6 +1,5 @@
 package com.example.ruiyonghui.quarter_time.fragment;
 
-
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

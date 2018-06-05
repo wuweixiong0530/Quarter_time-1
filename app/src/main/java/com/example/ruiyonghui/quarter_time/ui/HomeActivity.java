@@ -12,7 +12,10 @@ import com.hjm.bottomtabbar.BottomTabBar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Home2Activity extends AppCompatActivity {
+/**
+ * home主界面
+ */
+public class HomeActivity extends AppCompatActivity {
 
     @BindView(R.id.bottomTabBar)
     BottomTabBar bottomTabBar;
@@ -20,7 +23,7 @@ public class Home2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home2);
+        setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
 
         bottomTabBar.init(getSupportFragmentManager())
