@@ -17,6 +17,8 @@ public class RecommendFragment  extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ///引入布局
         View view = inflater.inflate(R.layout.recommend, container, false);
+
+
         return view;
     }
 }
