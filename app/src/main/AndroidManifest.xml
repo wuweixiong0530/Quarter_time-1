@@ -21,7 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.HomeActivity"></activity>
+        <activity android:name=".ui.HomeActivity" />
+        <activity android:name=".ui.collect.CollectActivity" />
+        <activity android:name=".ui.AttentionActivity" />
+        <activity android:name=".ui.SearchActivity" />
+        <activity android:name=".ui.MessageActivity" />
+        <activity android:name=".ui.LoginActivity"></activity>
     </application>
 
 </manifest>

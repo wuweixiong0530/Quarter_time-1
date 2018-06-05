@@ -1,35 +1,133 @@
 package com.example.ruiyonghui.quarter_time.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.ruiyonghui.quarter_time.R;
 import com.example.ruiyonghui.quarter_time.fragment.DuanZiFragment;
 import com.example.ruiyonghui.quarter_time.fragment.RecommendFragment;
 import com.example.ruiyonghui.quarter_time.fragment.VideoFragment;
+import com.example.ruiyonghui.quarter_time.ui.collect.CollectActivity;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.hjm.bottomtabbar.BottomTabBar;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 /**
  * home主界面
  */
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    @BindView(R.id.bottomTabBar)
+    SimpleDraweeView touxiang;
+    TextView homeText;
+    ImageView edit;
     BottomTabBar bottomTabBar;
+
+    SlidingMenu menu;
+    private SimpleDraweeView imageTouXiang;
+    private RelativeLayout my_attention;
+    private RelativeLayout my_collect;
+    private RelativeLayout search_friend;
+    private RelativeLayout info_message;
+    private RelativeLayout night_mode;
+    private RelativeLayout my_works;
+    private RelativeLayout setting;
+    private View leftView;
+    private LinearLayout ll_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        ButterKnife.bind(this);
 
+        intiView();
+        //点击头像弹出侧拉菜单
+        touxiang.setOnClickListener(this);
+
+        //bottombar的设置
         bottomTabBar.init(getSupportFragmentManager())
                 .setImgSize(40, 40)//图片大小
                 .addTabItem("推荐", R.drawable.raw_1500085367, RecommendFragment.class)
                 .addTabItem("段子", R.drawable.raw_1500085327, DuanZiFragment.class)
                 .addTabItem("视频", R.drawable.raw_1500083686, VideoFragment.class);
+
+        //侧拉设置
+        slidMenu();
+    }
+
+
+
+    private void slidMenu() {
+        menu = new SlidingMenu(this);
+        //设置侧滑的方向.左侧
+        menu.setMode(SlidingMenu.LEFT);
+        // 设置触摸屏幕的模式
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        // 设置滑动完剩余的宽度
+        menu.setBehindOffset(210);
+        // 设置渐入渐出效果的值
+        menu.setFadeDegree(0.35f);
+        //绑定
+        menu.attachToActivity(this, SlidingMenu.SLIDING_WINDOW);
+        //为侧滑菜单设置布局
+        leftView = View.inflate(this, R.layout.sliding_left, null);
+        menu.setMenu(R.layout.sliding_left);
+
+        menu.setTouchModeBehind(SlidingMenu.TOUCHMODE_FULLSCREEN);
+
+
+        ll_login = leftView.findViewById(R.id.ll_login);
+        imageTouXiang = leftView.findViewById(R.id.my_image_view);
+        my_attention = leftView.findViewById(R.id.my_attention);//关注
+        my_collect = leftView.findViewById(R.id.my_collect);//收藏
+        search_friend = leftView.findViewById(R.id.search_friend);//搜索好友
+        info_message = leftView.findViewById(R.id.info_message);//消息通知
+        night_mode = leftView.findViewById(R.id.night_mode);//夜间模式
+        my_works = leftView.findViewById(R.id.my_works);//我的作品
+        setting = leftView.findViewById(R.id.setting);//设置
+        my_collect.setOnClickListener(this);
+
+    }
+
+    private void intiView() {
+        touxiang = findViewById(R.id.touxiang);
+        homeText = findViewById(R.id.home_text);
+        edit = findViewById(R.id.edit);
+        bottomTabBar = findViewById(R.id.bottomTabBar);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.touxiang:
+                menu.showMenu();
+                break;
+            case R.id.edit:
+                break;
+//            case R.id.ll_login://点击侧拉头像
+//                //跳转至登录
+//                startActivity(new Intent(this, LoginActivity.class));
+//                break;
+//            case R.id.my_attention://点击我的关注
+//                //跳转至我的关注
+//                startActivity(new Intent(this, AttentionActivity.class));
+//                break;
+            case R.id.my_collect://点击我的收藏
+                //跳转至我的收藏
+                startActivity(new Intent(this, CollectActivity.class));
+                break;
+//            case R.id.search_friend://点击搜索好友
+//                startActivity(new Intent(this, SearchActivity.class));
+//                break;
+//            case R.id.info_message://点击消息通知
+//                startActivity(new Intent(this, MessageActivity.class));
+//                break;
+        }
     }
 }
