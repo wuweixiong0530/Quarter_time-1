@@ -1,6 +1,12 @@
 package com.example.ruiyonghui.quarter_time.module;
 
 import com.example.ruiyonghui.quarter_time.net.Api;
+import com.example.ruiyonghui.quarter_time.net.CollectApi;
+import com.example.ruiyonghui.quarter_time.net.CollentApiService;
+import com.example.ruiyonghui.quarter_time.net.LoginApi;
+import com.example.ruiyonghui.quarter_time.net.LoginApiService;
+import com.example.ruiyonghui.quarter_time.net.RegisterApi;
+import com.example.ruiyonghui.quarter_time.net.RegisterApiService;
 import com.example.ruiyonghui.quarter_time.untils.MyInterceptor;
 
 import java.util.concurrent.TimeUnit;
