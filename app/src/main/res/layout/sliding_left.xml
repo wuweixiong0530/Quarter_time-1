@@ -1,149 +1,280 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="#fff"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
     <LinearLayout
-        android:orientation="vertical"
-        android:background="#d2a0df"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_weight="1"
+        android:background="#d2a0df"
+        android:orientation="vertical">
+
         <LinearLayout
-            android:layout_marginTop="60dp"
-            android:padding="20dp"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
             <com.facebook.drawee.view.SimpleDraweeView
-                android:layout_gravity="center_vertical"
-                fresco:roundAsCircle="true"
                 android:id="@+id/my_image_view"
-                fresco:placeholderImage="@drawable/touxiang"
                 android:layout_width="80dp"
-                android:layout_height="80dp" />
+                android:layout_height="80dp"
+                android:layout_gravity="center_vertical"
+                fresco:placeholderImage="@drawable/touxiang"
+                fresco:roundAsCircle="true" />
 
             <TextView
-                android:layout_marginLeft="20dp"
-                android:textSize="23sp"
-                android:layout_gravity="center_vertical"
-                android:text="椰汁奶茶"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:text="椰汁奶茶"
+                android:textSize="23dp" />
 
             <ImageView
-                android:layout_marginLeft="70dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/sex"
                 android:layout_width="30dp"
-                android:layout_height="30dp" />
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="70dp"
+                android:src="@drawable/sex" />
+
         </LinearLayout>
+
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:textSize="19sp"
             android:layout_marginLeft="20dp"
             android:text="编辑个性签名"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textSize="19sp" />
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="5"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#ffffff"
-        android:orientation="vertical"
-        android:paddingLeft="35dp">
+        android:layout_weight="2"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/takecare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:drawableLeft="@drawable/raw_1499933216"
-            android:drawableRight="@drawable/raw_1499943790"
-            android:text="    我的关注                              "
-            android:textColor="#383838"
-            android:textSize="18sp" />
+        <RelativeLayout
+            android:id="@+id/my_attention"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
 
-        <TextView
-            android:id="@+id/collection"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:drawableLeft="@drawable/raw_1499947358"
-            android:text="    我的收藏                              "
-            android:textColor="#383838"
-            android:textSize="18sp" />
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/img_guanzhu"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                fresco:placeholderImage="@drawable/raw_1499933216" />
 
-        <TextView
-            android:id="@+id/friend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:drawableLeft="@drawable/raw_1499946865"
-            android:text="    搜索好友                              "
-            android:textColor="#383838"
-            android:textSize="18sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/img_guanzhu"
+                android:gravity="center_vertical"
+                android:text="我的关注"
+                android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/messages"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:drawableLeft="@drawable/raw_1499947389"
-            android:text="    消息通知                              "
-            android:textColor="#383838"
-            android:textSize="18sp" />
-    </LinearLayout>
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="60dp"
+                fresco:placeholderImage="@drawable/raw_1499943790" />
+        </RelativeLayout>
 
-    <LinearLayout
-        android:gravity="center_vertical"
-        android:paddingLeft="30dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/night"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/yl"
-            android:gravity="center_vertical"
-            android:text="  夜间模式"
-            android:textColor="#383838"
-            android:textSize="18sp" />
-    </LinearLayout>
-    <RelativeLayout
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        <RelativeLayout
+            android:id="@+id/my_collect"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
 
-        <TextView
-            android:layout_centerVertical="true"
-            android:id="@+id/my_directory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/raw_1499947056"
-            android:text="我的作品"
-            android:textColor="#383838"
-            android:textSize="18sp" />
-        <TextView
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/img_shoucang"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                fresco:placeholderImage="@drawable/raw_1499947358" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/img_shoucang"
+                android:gravity="center_vertical"
+                android:text="我的收藏"
+                android:textSize="24sp" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="60dp"
+                fresco:placeholderImage="@drawable/raw_1499943790" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/search_friend"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/img_search"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                fresco:placeholderImage="@drawable/raw_1499946865" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/img_search"
+                android:gravity="center_vertical"
+                android:text="搜索好友"
+                android:textSize="24sp" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="60dp"
+                fresco:placeholderImage="@drawable/raw_1499943790" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/info_message"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/img_message"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                fresco:placeholderImage="@drawable/raw_1499947389" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/img_message"
+                android:gravity="center_vertical"
+                android:text="消息通知"
+                android:textSize="24sp" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="60dp"
+                fresco:placeholderImage="@drawable/raw_1499943790" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3" />
+
+        <RelativeLayout
+            android:id="@+id/night_mode"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/img_ye"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                fresco:placeholderImage="@drawable/yl" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/img_ye"
+                android:gravity="center_vertical"
+                android:text="夜间模式"
+                android:textSize="24sp" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="60dp"
+                fresco:placeholderImage="@drawable/raw_1499943790" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:id="@+id/settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/raw_1499947157"
-            android:text="设置"
-            android:textColor="#383838"
-            android:textSize="18sp" />
-    </RelativeLayout>
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/my_works"
+                android:layout_width="0dp"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/img_zuo"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    fresco:placeholderImage="@drawable/raw_1499947056" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_zuo"
+                    android:text="我的作品"
+                    android:textColor="#383838"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/setting"
+                android:layout_width="0dp"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/img_she"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    fresco:placeholderImage="@drawable/raw_1499947157" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_she"
+                    android:text="设置"
+                    android:textColor="#383838"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>

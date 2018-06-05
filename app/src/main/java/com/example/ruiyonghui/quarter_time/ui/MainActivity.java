@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            Intent intent=new Intent(MainActivity.this,HomeActivity.class);
+                            Intent intent=new Intent(MainActivity.this,Home2Activity.class);
                             startActivity(intent);
                             finish();
                         }

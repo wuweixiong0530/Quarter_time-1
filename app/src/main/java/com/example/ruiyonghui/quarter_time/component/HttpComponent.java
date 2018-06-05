@@ -4,7 +4,6 @@ import com.example.ruiyonghui.quarter_time.fragment.DuanZiFragment;
 import com.example.ruiyonghui.quarter_time.fragment.RecommendFragment;
 import com.example.ruiyonghui.quarter_time.fragment.VideoFragment;
 import com.example.ruiyonghui.quarter_time.module.HttpModule;
-import com.example.ruiyonghui.quarter_time.ui.HomeActivity;
 
 import dagger.Component;
 
