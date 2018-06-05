@@ -7,17 +7,16 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 
 import com.example.ruiyonghui.quarter_time.R;
+import com.example.ruiyonghui.quarter_time.ui.collect.CollectActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     Handler handler = new Handler();
-    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        progressBar = findViewById( R.id.pro );
         setContentView(R.layout.activity_main);
         new Thread(){
             @Override
