@@ -5,12 +5,13 @@ import com.example.ruiyonghui.quarter_time.untils.MyInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
+import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-
+@Module
 public class HttpModule {
     @Provides
     OkHttpClient.Builder provideOkHttpClientBuilder() {
