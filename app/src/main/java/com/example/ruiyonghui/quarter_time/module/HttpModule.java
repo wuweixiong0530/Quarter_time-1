@@ -5,6 +5,8 @@ import com.example.ruiyonghui.quarter_time.net.CollectApi;
 import com.example.ruiyonghui.quarter_time.net.CollentApiService;
 import com.example.ruiyonghui.quarter_time.net.LoginApi;
 import com.example.ruiyonghui.quarter_time.net.LoginApiService;
+import com.example.ruiyonghui.quarter_time.net.ReMenApi;
+import com.example.ruiyonghui.quarter_time.net.ReMenService;
 import com.example.ruiyonghui.quarter_time.net.RegisterApi;
 import com.example.ruiyonghui.quarter_time.net.RegisterApiService;
 import com.example.ruiyonghui.quarter_time.untils.MyInterceptor;
@@ -36,12 +38,14 @@ public class HttpModule {
                 .client(builder.build());
     }
 
+    //登录
     @Provides
     LoginApi provideLoginApi(Retrofit.Builder builder) {
         Retrofit retrofit = builder.build();
         LoginApiService loginApiService = retrofit.create(LoginApiService.class);
         return LoginApi.getLoginApi(loginApiService);
     }
+    //注册
     @Provides
     RegisterApi provideRegisterApi(Retrofit.Builder builder) {
         Retrofit retrofit = builder.build();
@@ -49,19 +53,20 @@ public class HttpModule {
         return RegisterApi.getRegisterApi(registerApiService);
     }
 
-//    @Provides
-//    AdApi provideAdApi(Retrofit.Builder builder) {
-////        //builder.addInterceptor(new MyInterceptor());
-//        Retrofit retrofit = builder.build();
-//        AdApiService adApiService = retrofit.create(AdApiService.class);
-//        return AdApi.getAdApi(adApiService);
-//    }
 
+    //收藏
     @Provides
     CollectApi provideCollectApi(Retrofit.Builder builder) {
-            Retrofit retrofit = builder.build();
+        Retrofit retrofit = builder.build();
         CollentApiService collentApiService = retrofit.create(CollentApiService.class);
         return CollectApi.getCollectApi(collentApiService);
     }
 
+    //轮播
+    @Provides
+    ReMenApi provideReMenApi(Retrofit.Builder builder){
+        Retrofit retrofit = builder.build();
+        ReMenService reMenService = retrofit.create(ReMenService.class);
+        return ReMenApi.getReMenApi(reMenService);
+    }
 }

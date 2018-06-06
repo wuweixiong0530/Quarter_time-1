@@ -24,7 +24,6 @@ public class CollectPresenter extends BasePrensenter<CollectContract.View> imple
     public CollectPresenter(CollectApi collectApi){
         this.collectApi = collectApi;
     }
-
     @Override
     public void getFavorites(String uid, String token, String source, String appVersion) {
         collectApi.getFavorites(uid,token,source,appVersion)

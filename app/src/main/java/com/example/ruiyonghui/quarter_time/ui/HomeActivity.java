@@ -11,7 +11,8 @@ import android.widget.TextView;
 
 import com.example.ruiyonghui.quarter_time.R;
 import com.example.ruiyonghui.quarter_time.fragment.DuanZiFragment;
-import com.example.ruiyonghui.quarter_time.fragment.RecommendFragment;
+import com.example.ruiyonghui.quarter_time.login.LoginActivity;
+import com.example.ruiyonghui.quarter_time.ui.recommend.RecommendFragment;
 import com.example.ruiyonghui.quarter_time.fragment.VideoFragment;
 import com.example.ruiyonghui.quarter_time.ui.collect.CollectActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -55,5 +56,67 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 .addTabItem("推荐", R.drawable.raw_1500085367, RecommendFragment.class)
                 .addTabItem("段子", R.drawable.raw_1500085327, DuanZiFragment.class)
                 .addTabItem("视频", R.drawable.raw_1500083686, VideoFragment.class);
+
+        //侧拉设置
+        slidMenu();
+    }
+
+
+
+
+    private void slidMenu() {
+        menu = new SlidingMenu(this);
+        //设置侧滑的方向.左侧
+        menu.setMode(SlidingMenu.LEFT);
+        // 设置触摸屏幕的模式
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        // 设置滑动完剩余的宽度
+        menu.setBehindOffset(210);
+        // 设置渐入渐出效果的值
+        menu.setFadeDegree(0.35f);
+        //绑定
+        menu.attachToActivity(this, SlidingMenu.SLIDING_WINDOW);
+        //为侧滑菜单设置布局
+        leftView = View.inflate(this, R.layout.sliding_left, null);
+        menu.setMenu(leftView);
+
+        ll_login = leftView.findViewById(R.id.ll_login);
+        imageTouXiang = leftView.findViewById(R.id.my_image_view);
+        my_attention = leftView.findViewById(R.id.my_attention);//关注
+        my_collect = leftView.findViewById(R.id.my_collect);//收藏
+        search_friend = leftView.findViewById(R.id.search_friend);//搜索好友
+        info_message = leftView.findViewById(R.id.info_message);//消息通知
+        night_mode = leftView.findViewById(R.id.night_mode);//夜间模式
+        my_works = leftView.findViewById(R.id.my_works);//我的作品
+        setting = leftView.findViewById(R.id.setting);//设置
+        my_collect.setOnClickListener(this);
+        ll_login.setOnClickListener(this);
+
+    }
+
+    private void intiView() {
+        touxiang = findViewById(R.id.touxiang);
+        homeText = findViewById(R.id.home_text);
+        edit = findViewById(R.id.edit);
+        bottomTabBar = findViewById(R.id.bottomTabBar);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.touxiang:
+                menu.showMenu();
+                break;
+            case R.id.edit:
+                break;
+            case R.id.ll_login:
+                startActivity(new Intent(this,LoginActivity.class));
+                break;
+            case R.id.my_collect:
+                startActivity(new Intent(this,CollectActivity.class));
+                break;
+
+        }
     }
 }

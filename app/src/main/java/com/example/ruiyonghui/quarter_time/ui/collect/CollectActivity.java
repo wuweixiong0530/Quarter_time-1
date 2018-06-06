@@ -1,9 +1,9 @@
 package com.example.ruiyonghui.quarter_time.ui.collect;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +17,6 @@ import com.example.ruiyonghui.quarter_time.ui.collect.adapter.CollectAdapter;
 import com.example.ruiyonghui.quarter_time.ui.collect.contract.CollectContract;
 import com.example.ruiyonghui.quarter_time.ui.collect.presenter.CollectPresenter;
 
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -76,15 +75,20 @@ public class CollectActivity extends BaseActivity<CollectPresenter> implements C
      */
     @Override
     public void getFavorSuccess(FavoritesBean favoritesBean) {
-        Toast.makeText(this, favoritesBean.getMsg(),Toast.LENGTH_SHORT).show();
-        CollectAdapter collectAdapter = new CollectAdapter(this,favoritesBean);
-        recycleViewCollect.setAdapter(collectAdapter);
-        recycleViewCollect.setLayoutManager(new LinearLayoutManager(this));
+        Log.i("collect","成功:"+favoritesBean.getMsg());
+//        Toast.makeText(this, favoritesBean.getMsg(),Toast.LENGTH_SHORT).show();
+        if (favoritesBean.getCode().equals("0")){
+            CollectAdapter collectAdapter = new CollectAdapter(this,favoritesBean);
+            recycleViewCollect.setAdapter(collectAdapter);
+            recycleViewCollect.setLayoutManager(new LinearLayoutManager(this));
+        }
+
     }
 
     @Override
     public void getFavorError(Throwable throwable) {
-        Toast.makeText(this, "错误是"+throwable,Toast.LENGTH_SHORT).show();
+        Log.i("collect","错误:"+throwable);
+//        Toast.makeText(this, "错误是"+throwable,Toast.LENGTH_SHORT).show();
 
     }
 
