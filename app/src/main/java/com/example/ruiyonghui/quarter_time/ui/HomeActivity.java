@@ -60,7 +60,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 .setImgSize(40, 40)//图片大小
                 .addTabItem("推荐", R.drawable.raw_1500085367, RecommendFragment.class)
                 .addTabItem("段子", R.drawable.raw_1500085327, DuanZiFragment.class)
-                .addTabItem("视频", R.drawable.raw_1500083686, VideoFragment.class);
+                .addTabItem("视频", R.drawable.raw_1500083686, VideoFragment.class)
+                .isShowDivider(false);
+
 
         //侧拉设置
         slidMenu();
