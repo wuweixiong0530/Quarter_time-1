@@ -1,6 +1,7 @@
 package com.example.ruiyonghui.quarter_time.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -52,6 +53,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         //bottombar的设置
         bottomTabBar.init(getSupportFragmentManager())
+                .setImgSize(50, 50)
+                .setFontSize(8)
+                .setTabPadding(4, 6, 10)
+                .setChangeColor( Color.BLUE, Color.DKGRAY)
                 .setImgSize(40, 40)//图片大小
                 .addTabItem("推荐", R.drawable.raw_1500085367, RecommendFragment.class)
                 .addTabItem("段子", R.drawable.raw_1500085327, DuanZiFragment.class)
