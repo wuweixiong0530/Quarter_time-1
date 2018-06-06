@@ -12,6 +12,5 @@ public interface LoginApiService {
 
     @FormUrlEncoded
     @POST("user/login")
-    Observable<LoginBean> login(@Field("mobile") String mobile,
-                                @Field("password") String password);
+    Observable<LoginBean> login(@Field("mobile") String mobile, @Field("password") String password);
 }

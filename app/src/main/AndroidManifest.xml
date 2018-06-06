@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.ruiyonghui.quarter_time">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- QQ登录授权所需权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".application.MyApplication"
@@ -14,6 +19,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5b17e7d3a40fa368580000ec"/>
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +32,22 @@
         <activity android:name=".ui.HomeActivity" />
         <activity android:name=".login.LoginHomeActivity" />
         <activity android:name=".login.LoginActivity" />
-        <activity android:name=".login.RegistActivity"></activity>
-        <activity android:name=".ui.collect.CollectActivity"></activity>
+        <activity android:name=".login.RegistActivity" />
+        <activity android:name=".ui.collect.CollectActivity" />
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5b17e7d3a40fa368580000ec"/>
     </application>
 
 </manifest>

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.ruiyonghui.quarter_time.R;
 import com.example.ruiyonghui.quarter_time.bean.RegisterBean;
+import com.example.ruiyonghui.quarter_time.component.DaggerHttpComponent;
 import com.example.ruiyonghui.quarter_time.login.contract.RegisterContract;
 import com.example.ruiyonghui.quarter_time.login.presenter.RegisterPresenter;
 import com.example.ruiyonghui.quarter_time.module.HttpModule;
@@ -57,15 +58,15 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
 
     @Override
     public void inject() {
-
+        DaggerHttpComponent.builder()
+                .httpModule(new HttpModule())
+                .build()
+                .inject(this);
     }
 
 //    @Override
 //    public void inject() {
-//        DaggerHttpComponent.builder()
-//                .httpModule(new HttpModule())
-//                .build()
-//                .inject(this);
+
 //    }
 
     @Override
@@ -77,6 +78,8 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
             Toast.makeText(RegistActivity.this, registerBean.getMsg(), Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(RegistActivity.this, registerBean.getMsg(), Toast.LENGTH_SHORT).show();
+            intent = new Intent(RegistActivity.this,HomeActivity.class);
+            startActivity( intent );
         }
 
     }

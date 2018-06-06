@@ -4,18 +4,22 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ruiyonghui.quarter_time.R;
 import com.example.ruiyonghui.quarter_time.fragment.DuanZiFragment;
 import com.example.ruiyonghui.quarter_time.login.LoginActivity;
+import com.example.ruiyonghui.quarter_time.login.LoginHomeActivity;
 import com.example.ruiyonghui.quarter_time.ui.recommend.RecommendFragment;
 import com.example.ruiyonghui.quarter_time.fragment.VideoFragment;
 import com.example.ruiyonghui.quarter_time.ui.collect.CollectActivity;
+import com.example.ruiyonghui.quarter_time.untils.SharedPreferencesUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hjm.bottomtabbar.BottomTabBar;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -118,10 +122,20 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.edit:
                 break;
             case R.id.ll_login:
-                startActivity(new Intent(this,LoginActivity.class));
+                String uid = (String) SharedPreferencesUtils.getParam(HomeActivity.this,"uid","");
+                if (!TextUtils.isEmpty( uid )){
+                    Toast.makeText( HomeActivity.this,"登录过了",Toast.LENGTH_SHORT ).show();
+                }else {
+                    startActivity(new Intent(this, LoginHomeActivity.class));
+                }
+
                 break;
             case R.id.my_collect:
                 startActivity(new Intent(this,CollectActivity.class));
+                break;
+                //侧拉我的关注
+            case R.id.my_attention:
+
                 break;
 
         }
