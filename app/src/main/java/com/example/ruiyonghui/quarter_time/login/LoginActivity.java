@@ -12,11 +12,13 @@ import android.widget.Toast;
 
 import com.example.ruiyonghui.quarter_time.R;
 import com.example.ruiyonghui.quarter_time.bean.LoginBean;
+import com.example.ruiyonghui.quarter_time.component.DaggerHttpComponent;
 import com.example.ruiyonghui.quarter_time.login.contract.LoginContract;
 import com.example.ruiyonghui.quarter_time.login.presenter.LoginPresenter;
 import com.example.ruiyonghui.quarter_time.module.HttpModule;
 import com.example.ruiyonghui.quarter_time.ui.HomeActivity;
 import com.example.ruiyonghui.quarter_time.ui.base.BaseActivity;
+import com.example.ruiyonghui.quarter_time.untils.SharedPreferencesUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.BindView;
@@ -60,20 +62,22 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements View.
 
     @Override
     public void inject() {
-
+        DaggerHttpComponent.builder()
+                .httpModule(new HttpModule())
+                .build()
+                .inject(this);
     }
-
-//    @Override
-//    public void inject() {
-//        DaggerHttpComponent.builder()
-//                .httpModule(new HttpModule())
-//                .build()
-//                .inject(this);
-//    }
 
     @Override
     public void loginSuccess(LoginBean loginBean) {
         Toast.makeText(LoginActivity.this, loginBean.getMsg(), Toast.LENGTH_SHORT).show();
+        SharedPreferencesUtils.setParam(LoginActivity.this,"uid",loginBean.getData().getUid() + "");
+        SharedPreferencesUtils.setParam(LoginActivity.this,"name",loginBean.getData().getUsername() + "");
+        SharedPreferencesUtils.setParam(LoginActivity.this,"iconUrl",loginBean.getData().getIcon() + "");
+        SharedPreferencesUtils.setParam(LoginActivity.this,"token",loginBean.getData().getToken() + "");
+        intent = new Intent(LoginActivity.this,HomeActivity.class);
+        startActivity( intent );
+
     }
 
     @OnClick({R.id.back, R.id.regist, R.id.user_name, R.id.user_pass, R.id.but_login, R.id.xgmima, R.id.yk_a})
@@ -100,6 +104,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements View.
                 mPresenter.login(mobile, password);
                 break;
             case R.id.xgmima:
+                intent = new Intent(LoginActivity.this,ForgetPassword.class);
+                startActivity( intent );
                 break;
             case R.id.yk_a:
                 intent = new Intent(LoginActivity.this,HomeActivity.class);
