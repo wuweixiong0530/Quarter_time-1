@@ -6,11 +6,11 @@ import com.example.ruiyonghui.quarter_time.bean.HotVideoBean;
 import io.reactivex.Observable;
 
 /**
- * Created by Administrator on 2018/6/5,0005.
+ * Created by wwx on 2018/6/5,0005.
  */
 
 public class ReMenApi {
-    public static ReMenApi reMenApi;
+    private static ReMenApi reMenApi;
     public ReMenService reMenService;
 
     public ReMenApi(ReMenService reMenService){
@@ -29,8 +29,5 @@ public class ReMenApi {
         return reMenService.getLuunBo();
     }
 
-    //热门视频列表
-    public Observable<HotVideoBean> getHotVideo(String token,String source,String page){
-        return reMenService.getHotVideo(token,source,page);
-    }
+
 }

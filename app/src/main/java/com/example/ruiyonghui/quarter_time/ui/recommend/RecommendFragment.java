@@ -52,7 +52,8 @@ public class RecommendFragment extends Fragment implements RadioGroup.OnCheckedC
 
         radioGrooup.setOnCheckedChangeListener(this);
         radioGrooup.check(R.id.radio1);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fl,new ReMenFragment()).commit();
+        //此处不能重写，否则会销毁页面
+        //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fl,new ReMenFragment()).commit();
     }
 
 

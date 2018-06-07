@@ -17,10 +17,4 @@ public interface ReMenService {
     @GET("quarter/getAd")
     Observable<AdvertiseBean> getLuunBo();
 
-//    https://www.zhaoapi.cn/quarter/getHotVideos?token=36471BDA7A4BD22560CC9A207185CA65&source=android&page=1
-    //热门视频列表
-    @GET("quarter/getHotVideos")
-    Observable<HotVideoBean> getHotVideo(@Query("token") String token,
-                                         @Query("source") String source,
-                                         @Query("page") String page);
 }

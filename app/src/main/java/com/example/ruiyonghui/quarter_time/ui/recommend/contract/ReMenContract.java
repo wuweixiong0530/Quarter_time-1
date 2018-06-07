@@ -12,17 +12,19 @@ import com.example.ruiyonghui.quarter_time.ui.base.BaseContract;
 public interface ReMenContract {
     interface View extends BaseContract.BaseView {
         void getLunBoSuccess(AdvertiseBean advertiseBean);
+
         void getLunBoError(Throwable e);
 
         void getHotVideoSuccess(HotVideoBean hotVideoBean);
+
         void getHotVideoError(Throwable e);
     }
 
-    interface Presenter extends BaseContract.BasePresenter<ReMenContract.View> {
+    interface Presenter extends BaseContract.BasePresenter<View> {
         //获取轮播
         void getLunBo();
 
-        void getHotVideo(String token,String source,String page);
+        void getHotVideo(String token,String page);
 
     }
 }

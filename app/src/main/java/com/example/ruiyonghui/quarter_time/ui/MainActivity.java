@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 
 import com.example.ruiyonghui.quarter_time.R;
+import com.example.ruiyonghui.quarter_time.login.LoginActivity;
 import com.example.ruiyonghui.quarter_time.ui.collect.CollectActivity;
 
 public class MainActivity extends AppCompatActivity {

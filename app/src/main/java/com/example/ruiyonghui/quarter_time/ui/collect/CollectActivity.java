@@ -39,7 +39,7 @@ public class CollectActivity extends BaseActivity<CollectPresenter> implements C
         ButterKnife.bind(this);
 
         mPresenter.attchView(this);
-        mPresenter.getFavorites("2845","36471BDA7A4BD22560CC9A207185CA65","android", String.valueOf(101));
+        mPresenter.getFavorites("2845","36471BDA7A4BD22560CC9A207185CA65");
 
     }
 

@@ -1,7 +1,10 @@
 package com.example.ruiyonghui.quarter_time.ui.recommend.presenter;
 
+import android.util.Log;
+
 import com.example.ruiyonghui.quarter_time.bean.AdvertiseBean;
 import com.example.ruiyonghui.quarter_time.bean.HotVideoBean;
+import com.example.ruiyonghui.quarter_time.net.HtoVideoApi;
 import com.example.ruiyonghui.quarter_time.net.ReMenApi;
 import com.example.ruiyonghui.quarter_time.ui.base.BasePrensenter;
 import com.example.ruiyonghui.quarter_time.ui.recommend.contract.ReMenContract;
@@ -20,9 +23,12 @@ import io.reactivex.schedulers.Schedulers;
 public class ReMenPresenter extends BasePrensenter<ReMenContract.View> implements ReMenContract.Presenter {
 
     public ReMenApi reMenApi;
+    public HtoVideoApi htoVideoApi;
+
     @Inject
-    public ReMenPresenter(ReMenApi reMenApi){
+    public ReMenPresenter(ReMenApi reMenApi, HtoVideoApi htoVideoApi) {
         this.reMenApi = reMenApi;
+        this.htoVideoApi = htoVideoApi;
     }
 
     @Override
@@ -38,7 +44,10 @@ public class ReMenPresenter extends BasePrensenter<ReMenContract.View> implement
 
                     @Override
                     public void onNext(AdvertiseBean advertiseBean) {
-                        mView.getLunBoSuccess(advertiseBean);
+                        if (mView!=null) {
+                            mView.getLunBoSuccess(advertiseBean);
+                            Log.i("ppppp", "数据" + advertiseBean);
+                        }
                     }
 
                     @Override
@@ -54,8 +63,8 @@ public class ReMenPresenter extends BasePrensenter<ReMenContract.View> implement
     }
 
     @Override
-    public void getHotVideo(String token, String source, String page) {
-        reMenApi.getHotVideo(token,source,page)
+    public void getHotVideo(String token,String page) {
+        htoVideoApi.getHotVideo(token,page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<HotVideoBean>() {
@@ -66,7 +75,9 @@ public class ReMenPresenter extends BasePrensenter<ReMenContract.View> implement
 
                     @Override
                     public void onNext(HotVideoBean hotVideoBean) {
-                        mView.getHotVideoSuccess(hotVideoBean);
+                        if (mView != null){
+                            mView.getHotVideoSuccess(hotVideoBean);
+                        }
                     }
 
                     @Override

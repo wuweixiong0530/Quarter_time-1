@@ -17,8 +17,6 @@ public interface CollentApiService {
 
     @GET("quarter/getFavorites")
     Observable<FavoritesBean> getFavorites(@Query("uid") String uid,
-                                      @Query("token") String token,
-                                      @Query("source") String source,
-                                      @Query("appVersion") String appVersion);
+                                           @Query("token") String token);
 }
 

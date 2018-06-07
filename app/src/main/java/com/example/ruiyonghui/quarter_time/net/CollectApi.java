@@ -24,7 +24,7 @@ public class CollectApi {
         return collectApi;
     }
 
-    public Observable<FavoritesBean> getFavorites(String uid, String token, String source, String appVersion) {
-        return collentApiService.getFavorites(uid, token, source, appVersion);
+    public Observable<FavoritesBean> getFavorites(String uid,String token) {
+        return collentApiService.getFavorites(uid,token);
     }
 }
