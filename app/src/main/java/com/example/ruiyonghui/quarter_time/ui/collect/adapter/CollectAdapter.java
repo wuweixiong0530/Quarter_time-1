@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.example.ruiyonghui.quarter_time.R;
 import com.example.ruiyonghui.quarter_time.bean.FavoritesBean;
-import com.example.ruiyonghui.quarter_time.ui.collect.CollectActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
@@ -66,7 +65,6 @@ public class CollectAdapter extends RecyclerView.Adapter<CollectAdapter.ViewHold
             tv2 = itemView.findViewById(R.id.tv2_collect);
             tv3 = itemView.findViewById(R.id.tv3_collect);
             img = itemView.findViewById(R.id.img_collect);
-
         }
     }
 }

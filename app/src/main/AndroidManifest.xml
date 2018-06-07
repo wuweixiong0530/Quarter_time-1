@@ -21,13 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.HomeActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"></activity>
+        <activity android:name=".ui.HomeActivity"></activity>
         <activity android:name=".login.LoginHomeActivity" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".login.RegistActivity"></activity>
-        <activity android:name=".ui.collect.CollectActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"></activity>
+        <activity android:name=".ui.collect.CollectActivity"></activity>
     </application>
 
 </manifest>
