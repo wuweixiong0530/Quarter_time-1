@@ -17,14 +17,7 @@ import com.example.ruiyonghui.quarter_time.ui.HomeActivity;
 import com.example.ruiyonghui.quarter_time.ui.MainActivity;
 import com.example.ruiyonghui.quarter_time.untils.SharedPreferencesUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.umeng.socialize.ShareAction;
-import com.umeng.socialize.UMAuthListener;
-import com.umeng.socialize.UMShareAPI;
-import com.umeng.socialize.UMShareConfig;
-import com.umeng.socialize.UMShareListener;
-import com.umeng.socialize.bean.SHARE_MEDIA;
-import com.umeng.socialize.media.UMImage;
-import com.umeng.socialize.media.UMWeb;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,6 +42,7 @@ public class LoginHomeActivity extends AppCompatActivity {
     SimpleDraweeView simpleDraweeView;
     private Intent intent;
     //5b17e7d3a40fa368580000ec
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -70,7 +64,6 @@ public class LoginHomeActivity extends AppCompatActivity {
 
                 break;
             case R.id.qq:
-
                 break;
             case R.id.login_t:
                 intent = new Intent(this,LoginActivity.class);
@@ -78,5 +71,10 @@ public class LoginHomeActivity extends AppCompatActivity {
                 break;
         }
     }
-
 }
+
+
+
+
+
+

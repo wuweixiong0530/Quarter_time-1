@@ -31,6 +31,7 @@
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".login.RegistActivity" />
         <activity android:name=".ui.collect.CollectActivity" />
+
     </application>
 
 </manifest>
