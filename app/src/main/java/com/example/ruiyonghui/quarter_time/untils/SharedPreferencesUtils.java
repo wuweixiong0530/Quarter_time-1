@@ -2,7 +2,6 @@ package com.example.ruiyonghui.quarter_time.untils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.umeng.socialize.UMAuthListener;
 
 /**
  * SharedPreferences的一个工具类，调用setParam就能保存String, Integer, Boolean, Float, Long类型的参数
