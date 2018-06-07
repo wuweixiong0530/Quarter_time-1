@@ -16,9 +16,6 @@ import com.example.ruiyonghui.quarter_time.ui.base.BaseActivity;
 import com.example.ruiyonghui.quarter_time.ui.collect.adapter.CollectAdapter;
 import com.example.ruiyonghui.quarter_time.ui.collect.contract.CollectContract;
 import com.example.ruiyonghui.quarter_time.ui.collect.presenter.CollectPresenter;
-import com.xiao.nicevideoplayer.NiceVideoPlayer;
-import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
-
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
