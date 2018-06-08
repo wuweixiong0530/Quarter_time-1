@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
@@ -17,7 +18,13 @@ android {
         }
     }
 }
+// 在MobSDK的扩展中注册SMSSDK的相关信息
+MobSDK {
+    appKey "2648c694e9e08"
+    appSecret "0490ef46ec3b873bb126f6abc6e30909"
 
+    SMSSDK {}
+}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'

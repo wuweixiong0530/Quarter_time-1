@@ -3,6 +3,7 @@ package com.example.ruiyonghui.quarter_time.application;
 import android.app.Application;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.mob.MobSDK;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.socialize.PlatformConfig;
 
@@ -14,6 +15,7 @@ public class MyApplication extends Application {
         super.onCreate();
         //初始化Fresco
         Fresco.initialize(this);
+        MobSDK.init(this);
         {
             PlatformConfig.setWeixin("wx967daebe835fbeac", "5bb696d9ccd75a38c8a0bfe0675559b3");
             PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");

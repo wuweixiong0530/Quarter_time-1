@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.ruiyonghui.quarter_time">
+    package="com.example.ruiyonghui.quarter_time"
+    android:versionCode="1"
+    android:versionName="1.0">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-sdk
+        android:minSdkVersion="27"
+        android:targetSdkVersion="27" />
+
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
@@ -25,16 +31,15 @@
         </activity>
         <activity android:name=".ui.HomeActivity" />
         <activity android:name=".login.LoginHomeActivity" />
-
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".login.RegistActivity" />
-        <activity android:name=".login.ForgetPassword"/>
+        <activity android:name=".login.ForgetPassword" />
         <activity android:name=".ui.collect.CollectActivity" />
-        <activity android:name=".ui.followusers.FollowUsersActivity"></activity>
+        <activity android:name=".ui.followusers.FollowUsersActivity" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -46,8 +51,9 @@
         </activity>
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".login.SuccessActivity"></activity>
     </application>
 
 </manifest>
