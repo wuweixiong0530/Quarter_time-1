@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.ruiyonghui.quarter_time.R;
 import com.example.ruiyonghui.quarter_time.bean.LoginBean;
+
 import com.example.ruiyonghui.quarter_time.component.DaggerHttpComponent;
 import com.example.ruiyonghui.quarter_time.login.contract.LoginContract;
 import com.example.ruiyonghui.quarter_time.login.presenter.LoginPresenter;
@@ -77,7 +78,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements View.
         Toast.makeText(LoginActivity.this, loginBean.getMsg(), Toast.LENGTH_SHORT).show();
         SharedPreferencesUtils.setParam(LoginActivity.this,"uid",loginBean.getData().getUid() + "");
         SharedPreferencesUtils.setParam(LoginActivity.this,"name",loginBean.getData().getUsername() + "");
-        SharedPreferencesUtils.setParam(LoginActivity.this,"iconUrl",loginBean.getData().getIcon() + "");
+        SharedPreferencesUtils.setParam(LoginActivity.this,"iconurl",loginBean.getData().getIcon() + "");
         SharedPreferencesUtils.setParam(LoginActivity.this,"token",loginBean.getData().getToken() + "");
         intent = new Intent(LoginActivity.this,HomeActivity.class);
         startActivity( intent );

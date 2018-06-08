@@ -8,9 +8,10 @@
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/gaoxiao_img"
-        android:layout_width="380dp"
-        android:layout_height="200dp"
-        fresco:placeholderImage="@drawable/gaoxiao"/>
+        android:layout_width="600dp"
+        android:layout_height="250dp"
+        fresco:placeholderImage="@drawable/gaoxiao"
+        fresco:placeholderImageScaleType="fitXY" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleView_guanzhu"

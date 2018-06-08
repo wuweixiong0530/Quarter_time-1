@@ -5,6 +5,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-sdk
+        android:minSdkVersion="27"
+        android:targetSdkVersion="27" />
 
     <application
         android:name=".application.MyApplication"
@@ -24,9 +29,8 @@
         <activity android:name=".ui.HomeActivity" />
         <activity android:name=".login.LoginHomeActivity" />
         <activity android:name=".login.LoginActivity" />
-        <activity android:name=".login.RegistActivity" />
-        <activity android:name=".ui.collect.CollectActivity" />
-        <activity android:name=".ui.SettingActivity"></activity>
+        <activity android:name=".login.RegistActivity"></activity>
+        <activity android:name=".ui.collect.CollectActivity"></activity>
     </application>
 
 </manifest>

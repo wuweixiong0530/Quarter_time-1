@@ -17,6 +17,7 @@ import com.example.ruiyonghui.quarter_time.R;
 import com.example.ruiyonghui.quarter_time.fragment.DuanZiFragment;
 import com.example.ruiyonghui.quarter_time.login.LoginActivity;
 import com.example.ruiyonghui.quarter_time.login.LoginHomeActivity;
+import com.example.ruiyonghui.quarter_time.ui.followusers.FollowUsersActivity;
 import com.example.ruiyonghui.quarter_time.ui.recommend.RecommendFragment;
 import com.example.ruiyonghui.quarter_time.fragment.VideoFragment;
 import com.example.ruiyonghui.quarter_time.ui.collect.CollectActivity;
@@ -33,6 +34,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "hhhhhhh";
     SimpleDraweeView touxiang;
     TextView homeText;
+    TextView name;
     ImageView edit;
     BottomTabBar bottomTabBar;
 
@@ -91,7 +93,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         //设置侧滑的方向.左侧
         menu.setMode(SlidingMenu.LEFT);
         // 设置触摸屏幕的模式
-        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
         // 设置滑动完剩余的宽度
         menu.setBehindOffset(210);
         // 设置渐入渐出效果的值
@@ -101,9 +103,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         //为侧滑菜单设置布局
         leftView = View.inflate(this, R.layout.sliding_left, null);
         menu.setMenu(leftView);
-
         ll_login = leftView.findViewById(R.id.ll_login);
         imageTouXiang = leftView.findViewById(R.id.my_image_view);
+        name=leftView.findViewById( R.id.name );
         my_attention = leftView.findViewById(R.id.my_attention);//关注
         my_collect = leftView.findViewById(R.id.my_collect);//收藏
         search_friend = leftView.findViewById(R.id.search_friend);//搜索好友
@@ -114,7 +116,18 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         my_collect.setOnClickListener(this);
         ll_login.setOnClickListener(this);
         setting.setOnClickListener(this);
+        my_attention.setOnClickListener( this );
 
+        String uid = (String) SharedPreferencesUtils.getParam( HomeActivity.this, "uid", "" );
+        String username = (String) SharedPreferencesUtils.getParam( HomeActivity.this, "name", "" );
+        String iconurl = (String) SharedPreferencesUtils.getParam( HomeActivity.this, "iconurl", "" );
+        if ("-1".equals( uid ))
+        {
+
+        }else{
+            imageTouXiang.setImageURI(iconurl);
+            name.setText(username);
+        }
     }
 
     private void intiView() {
@@ -153,8 +166,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.setting:
                 startActivity(new Intent(this, SettingActivity.class));
 
+                startActivity(new Intent(this,FollowUsersActivity.class));
                 break;
-
+                //侧拉我的收藏
+            case R.id.my_collect:
+                startActivity(new Intent(this,CollectActivity.class));
+                break;
         }
     }
 }

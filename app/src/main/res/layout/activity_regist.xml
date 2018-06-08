@@ -52,10 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@null"
-            android:lines="1"
-            android:singleLine="true"
-            android:maxLength="16"
             android:hint="请输入手机号"
+            android:maxLength="11"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white" />
         <View
@@ -73,9 +71,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@null"
+            android:hint="请输入大小写和数字,密码不能超过8位"
             android:paddingTop="10dp"
-            android:lines="1"
-            android:singleLine="true"
             android:maxLength="8"
             android:password="true"
             android:textColor="@android:color/white"
