@@ -10,12 +10,14 @@ import android.widget.Toast;
 
 import com.example.ruiyonghui.quarter_time.R;
 import com.example.ruiyonghui.quarter_time.bean.FavoritesBean;
+
 import com.example.ruiyonghui.quarter_time.component.DaggerHttpComponent;
 import com.example.ruiyonghui.quarter_time.module.HttpModule;
 import com.example.ruiyonghui.quarter_time.ui.base.BaseActivity;
 import com.example.ruiyonghui.quarter_time.ui.collect.adapter.CollectAdapter;
 import com.example.ruiyonghui.quarter_time.ui.collect.contract.CollectContract;
 import com.example.ruiyonghui.quarter_time.ui.collect.presenter.CollectPresenter;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,7 +40,7 @@ public class CollectActivity extends BaseActivity<CollectPresenter> implements C
         ButterKnife.bind(this);
 
         mPresenter.attchView(this);
-        mPresenter.getFavorites("2845","36471BDA7A4BD22560CC9A207185CA65");
+        mPresenter.getFavorites("2845","36471BDA7A4BD22560CC9A207185CA65","android", String.valueOf(101));
 
     }
 
@@ -80,7 +82,6 @@ public class CollectActivity extends BaseActivity<CollectPresenter> implements C
             CollectAdapter collectAdapter = new CollectAdapter(this,favoritesBean);
             recycleViewCollect.setAdapter(collectAdapter);
             recycleViewCollect.setLayoutManager(new LinearLayoutManager(this));
-
         }
 
     }

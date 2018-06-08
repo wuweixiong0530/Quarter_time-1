@@ -7,6 +7,7 @@ import com.example.ruiyonghui.quarter_time.login.LoginActivity;
 import com.example.ruiyonghui.quarter_time.login.RegistActivity;
 import com.example.ruiyonghui.quarter_time.module.HttpModule;
 import com.example.ruiyonghui.quarter_time.ui.collect.CollectActivity;
+import com.example.ruiyonghui.quarter_time.ui.followusers.FollowUsersActivity;
 import com.example.ruiyonghui.quarter_time.ui.recommend.fragment.GuanZhuFragment;
 import com.example.ruiyonghui.quarter_time.ui.recommend.fragment.ReMenFragment;
 
@@ -24,7 +25,7 @@ public interface HttpComponent {
     void inject(LoginActivity loginActivity);
 
     void inject(RegistActivity registActivity);
-
+    void inject(FollowUsersActivity followUsersActivity);
     void inject(ReMenFragment reMenFragment);
 
     void inject(GuanZhuFragment guanZhuFragment);

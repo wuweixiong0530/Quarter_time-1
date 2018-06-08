@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide;
 import com.example.ruiyonghui.quarter_time.R;
 import com.example.ruiyonghui.quarter_time.bean.AdvertiseBean;
 import com.example.ruiyonghui.quarter_time.bean.HotVideoBean;
+
 import com.example.ruiyonghui.quarter_time.component.DaggerHttpComponent;
 import com.example.ruiyonghui.quarter_time.module.HttpModule;
 import com.example.ruiyonghui.quarter_time.ui.base.BaseFragment;
