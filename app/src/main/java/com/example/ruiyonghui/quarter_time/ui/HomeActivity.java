@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,6 +30,7 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
  */
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "hhhhhhh";
     SimpleDraweeView touxiang;
     TextView homeText;
     ImageView edit;
@@ -60,19 +62,28 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 .setImgSize(50, 50)
                 .setFontSize(8)
                 .setTabPadding(4, 6, 10)
-                .setChangeColor( Color.BLUE, Color.DKGRAY)
-                .setImgSize(40, 40)//图片大小
-                .addTabItem("推荐", R.drawable.raw_1500085367, RecommendFragment.class)
-                .addTabItem("段子", R.drawable.raw_1500085327, DuanZiFragment.class)
-                .addTabItem("视频", R.drawable.raw_1500083686, VideoFragment.class)
+                .setChangeColor(Color.BLUE, Color.DKGRAY)
+                .setImgSize(50, 50)//图片大小
+                .addTabItem("推荐", R.drawable.tui_yes,R.drawable.tui_no, RecommendFragment.class)
+                .addTabItem("段子", R.drawable.duanzi_yes,R.drawable.duanzi_no, DuanZiFragment.class)
+                .addTabItem("视频", R.drawable.shipin_yes,R.drawable.shipin_no, VideoFragment.class)
                 .isShowDivider(false);
-
-
         //侧拉设置
         slidMenu();
+
+        bottomTabBar.setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
+            @Override
+            public void onTabChange(int position, String name) {
+                if (name.equals("推荐")){
+                    homeText.setText("推荐");
+                }else if (name.equals("段子")){
+                    homeText.setText("段子");
+                }else if (name.equals("视频")){
+                    homeText.setText("视频");
+                }
+            }
+        });
     }
-
-
 
 
     private void slidMenu() {
@@ -102,6 +113,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         setting = leftView.findViewById(R.id.setting);//设置
         my_collect.setOnClickListener(this);
         ll_login.setOnClickListener(this);
+        setting.setOnClickListener(this);
 
     }
 
@@ -122,19 +134,24 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.edit:
                 break;
             case R.id.ll_login:
-                String uid = (String) SharedPreferencesUtils.getParam(HomeActivity.this,"uid","");
-                if (!TextUtils.isEmpty( uid )){
-                    Toast.makeText( HomeActivity.this,"登录过了",Toast.LENGTH_SHORT ).show();
-                }else {
+                String uid = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "uid", "");
+                if (!TextUtils.isEmpty(uid)) {
+                    Toast.makeText(HomeActivity.this, "登录过了", Toast.LENGTH_SHORT).show();
+                } else {
                     startActivity(new Intent(this, LoginHomeActivity.class));
                 }
 
                 break;
             case R.id.my_collect:
-                startActivity(new Intent(this,CollectActivity.class));
+                startActivity(new Intent(this, CollectActivity.class));
                 break;
-                //侧拉我的关注
+            //侧拉我的关注
             case R.id.my_attention:
+
+                break;
+            //设置
+            case R.id.setting:
+                startActivity(new Intent(this, SettingActivity.class));
 
                 break;
 

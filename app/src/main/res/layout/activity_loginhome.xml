@@ -1,40 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.LoginHomeActivity"
     android:background="@drawable/background"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".login.LoginHomeActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/back"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/back"/>
+            android:background="@drawable/back" />
     </LinearLayout>
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/simple"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
-        fresco:roundedCornerRadius="30dp"
         android:layout_marginTop="80dp"
-         />
+        fresco:roundedCornerRadius="30dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="149dp"
-        android:layout_marginTop="520dp">
+        android:layout_marginTop="150dp">
 
         <ImageView
             android:id="@+id/weixin"
@@ -65,10 +62,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="1dp"
             android:text="其他登录方式"
-            android:textColor="@android:color/white"
-            />
+            android:textColor="@android:color/white" />
     </RelativeLayout>
-
 
 
 </LinearLayout>

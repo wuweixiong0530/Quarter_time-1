@@ -14,6 +14,8 @@ import com.example.ruiyonghui.quarter_time.net.ReMenApi;
 import com.example.ruiyonghui.quarter_time.net.ReMenService;
 import com.example.ruiyonghui.quarter_time.net.RegisterApi;
 import com.example.ruiyonghui.quarter_time.net.RegisterApiService;
+import com.example.ruiyonghui.quarter_time.net.VideoOneApi;
+import com.example.ruiyonghui.quarter_time.net.VideoOneService;
 import com.example.ruiyonghui.quarter_time.untils.MyInterceptor;
 
 import java.util.concurrent.TimeUnit;
@@ -94,5 +96,10 @@ public class HttpModule {
         return GuanZhuApi.getGuanZhu(guanZhuService);
     }
 
-
+    @Provides
+    VideoOneApi provideVideoOneApi(Retrofit.Builder builder){
+        Retrofit retrofit = builder.build();
+        VideoOneService videoOneService = retrofit.create(VideoOneService.class);
+        return VideoOneApi.getVideoOne(videoOneService);
+    }
 }

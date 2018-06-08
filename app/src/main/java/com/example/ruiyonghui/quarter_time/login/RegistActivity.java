@@ -3,6 +3,9 @@ package com.example.ruiyonghui.quarter_time.login;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.AbsoluteSizeSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,10 +48,20 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_regist );
-        ButterKnife.bind( this );
-        mSimpledrawee.setImageURI( (new Uri.Builder()).scheme( "res" ).path( String.valueOf( R.drawable.login ) ).build() );
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_regist);
+        ButterKnife.bind(this);
+        mSimpledrawee.setImageURI((new Uri.Builder()).scheme("res").path(String.valueOf(R.drawable.login)).build());
+
+        SpannableString spannableString2 = new SpannableString("请输入手机号");
+        AbsoluteSizeSpan textSize2 = new AbsoluteSizeSpan(15, true);
+        spannableString2.setSpan(textSize2, 0, spannableString2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        mUserName.setHint(spannableString2);
+
+        SpannableString spannableString = new SpannableString("请输入大小写和数字,密码不能超过8位");
+        AbsoluteSizeSpan textSize = new AbsoluteSizeSpan(15, true);
+        spannableString.setSpan(textSize, 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        mUserPass.setHint(spannableString);
     }
 
     @Override
@@ -64,22 +77,17 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
                 .inject(this);
     }
 
-//    @Override
-//    public void inject() {
-
-//    }
-
     @Override
     public void registerSuccess(RegisterBean registerBean) {
         String msg = registerBean.getCode();
-        if (msg.equals("0")){
+        if (msg.equals("0")) {
             Intent intent = new Intent(RegistActivity.this, LoginActivity.class);
             startActivity(intent);
             Toast.makeText(RegistActivity.this, registerBean.getMsg(), Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(RegistActivity.this, registerBean.getMsg(), Toast.LENGTH_SHORT).show();
-            intent = new Intent(RegistActivity.this,HomeActivity.class);
-            startActivity( intent );
+            intent = new Intent(RegistActivity.this, HomeActivity.class);
+            startActivity(intent);
         }
 
     }
@@ -90,12 +98,12 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
             default:
                 break;
             case R.id.back:
-                intent = new Intent(RegistActivity.this,LoginActivity.class);
-                startActivity( intent );
+                intent = new Intent(RegistActivity.this, LoginActivity.class);
+                startActivity(intent);
                 break;
             case R.id.regists:
-                intent = new Intent(RegistActivity.this,LoginActivity.class);
-                startActivity( intent );
+                intent = new Intent(RegistActivity.this, LoginActivity.class);
+                startActivity(intent);
                 break;
             case R.id.simpledrawee:
                 break;
@@ -109,8 +117,8 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
                 mPresenter.register(mobile, password);
                 break;
             case R.id.yk_a:
-                intent = new Intent(RegistActivity.this,HomeActivity.class);
-                startActivity( intent );
+                intent = new Intent(RegistActivity.this, HomeActivity.class);
+                startActivity(intent);
                 break;
         }
     }

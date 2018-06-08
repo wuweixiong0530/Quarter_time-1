@@ -1,5 +1,6 @@
 package com.example.ruiyonghui.quarter_time.ui.recommend.fragment;
 
+import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -16,6 +17,11 @@ import com.example.ruiyonghui.quarter_time.ui.base.BaseFragment;
 import com.example.ruiyonghui.quarter_time.ui.recommend.contract.ReMenContract;
 import com.example.ruiyonghui.quarter_time.ui.recommend.adapter.HotVideoAdapter;
 import com.example.ruiyonghui.quarter_time.ui.recommend.presenter.ReMenPresenter;
+import com.example.ruiyonghui.quarter_time.untils.ObservableScrollView;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.stx.xhb.xbanner.XBanner;
 
 import java.util.ArrayList;
@@ -26,13 +32,13 @@ import java.util.List;
  */
 
 public class ReMenFragment extends BaseFragment<ReMenPresenter> implements ReMenContract.View {
-
     XBanner xBanner;
     RecyclerView recycleViewRemen;
 
     String token = "36471BDA7A4BD22560CC9A207185CA65";
-    String source = "android";
     int page = 1;
+    private SmartRefreshLayout smartRefreshLayout;
+    private ObservableScrollView observableScrollView;
 
     @Override
     public int getContentLayout() {
@@ -50,12 +56,29 @@ public class ReMenFragment extends BaseFragment<ReMenPresenter> implements ReMen
 
     @Override
     public void initView(View view) {
-
+        observableScrollView = view.findViewById(R.id.observe_scroll_view);
+        smartRefreshLayout = view.findViewById(R.id.sm);
         xBanner = view.findViewById(R.id.xBanner);
         recycleViewRemen = view.findViewById(R.id.recycleView_remen);
         mPresenter.getLunBo();
-        mPresenter.getHotVideo(token,String.valueOf(page));
+        mPresenter.getHotVideo(token, String.valueOf(page));
 
+        smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshLayout) {
+                page++;
+                mPresenter.getHotVideo(token, String.valueOf(page));
+                smartRefreshLayout.finishRefresh(2000);
+            }
+        });
+        smartRefreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(RefreshLayout refreshLayout) {
+                page++;
+                mPresenter.getHotVideo(token, String.valueOf(page));
+                smartRefreshLayout.finishLoadMore(2000);
+            }
+        });
     }
 
 
@@ -111,7 +134,6 @@ public class ReMenFragment extends BaseFragment<ReMenPresenter> implements ReMen
             HotVideoAdapter hotVideoAdapter = new HotVideoAdapter(getActivity(), hotVideoBean);
             recycleViewRemen.setAdapter(hotVideoAdapter);
             recycleViewRemen.setLayoutManager(new LinearLayoutManager(getActivity()));
-
         }
     }
 
@@ -125,6 +147,5 @@ public class ReMenFragment extends BaseFragment<ReMenPresenter> implements ReMen
         Toast.makeText(getActivity(), "失败" + e, Toast.LENGTH_SHORT).show();
 
     }
-
 
 }

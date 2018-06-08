@@ -1,46 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_gravity="center_horizontal"
-    android:padding="5dp"
-    >
+    android:orientation="vertical"
+    android:padding="5dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginBottom="10dp"
-        >
+        android:layout_marginBottom="10dp">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/tou_collect"
             android:layout_width="40dp"
             android:layout_height="40dp"
             fresco:placeholderImage="@mipmap/ic_launcher"
-            fresco:roundAsCircle="true"/>
+            fresco:roundAsCircle="true" />
 
         <LinearLayout
-            android:layout_toRightOf="@+id/tou_collect"
-            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tou_collect"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tv1_collect"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textColor="#f00"
-                android:text="名字"/>
+                android:text="名字"
+                android:textColor="#f00" />
 
             <TextView
                 android:id="@+id/tv2_collect"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="时间"/>
+                android:text="时间" />
         </LinearLayout>
 
         <com.example.ruiyonghui.quarter_time.untils.CustomerView
@@ -53,10 +52,11 @@
         android:id="@+id/tv3_collect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="第三"/>
-    <cn.jzvd.JZVideoPlayerStandard
-        android:id="@+id/player_collect"
+        android:text="第三" />
+
+    <ImageView
+        android:id="@+id/img1_guanzhu"
         android:layout_width="match_parent"
-        android:background="@mipmap/ic_launcher"
-        android:layout_height="200dp"></cn.jzvd.JZVideoPlayerStandard>
+        android:layout_height="200dp"
+        android:src="@drawable/raw1499917357"></ImageView>
 </LinearLayout>

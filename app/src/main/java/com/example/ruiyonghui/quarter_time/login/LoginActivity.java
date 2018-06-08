@@ -3,6 +3,9 @@ package com.example.ruiyonghui.quarter_time.login;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.AbsoluteSizeSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,6 +54,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements View.
         setContentView( getContentLayout() );
         ButterKnife.bind( this );
         mSimpledrawee.setImageURI((new Uri.Builder()).scheme("res").path(String.valueOf(R.drawable.login)).build());
+
     }
 
 

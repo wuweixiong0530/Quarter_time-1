@@ -25,6 +25,8 @@ import butterknife.ButterKnife;
  */
 public class CollectActivity extends BaseActivity<CollectPresenter> implements CollectContract.View {
 
+    @BindView(R.id.tv_back)
+    TextView tv_back;
     @BindView(R.id.delete_collect)
     TextView deleteCollect;
     @BindView(R.id.recycleView_collect)
@@ -39,16 +41,12 @@ public class CollectActivity extends BaseActivity<CollectPresenter> implements C
 
         mPresenter.attchView(this);
         mPresenter.getFavorites("2845","36471BDA7A4BD22560CC9A207185CA65");
-
-    }
-
-    /**
-     * 点击返回
-     *
-     * @param view
-     */
-    public void back(View view) {
-        finish();
+        tv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     /**

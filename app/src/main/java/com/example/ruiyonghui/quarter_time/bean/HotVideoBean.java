@@ -1,5 +1,7 @@
 package com.example.ruiyonghui.quarter_time.bean;
 
+import android.provider.MediaStore;
+
 import java.util.List;
 
 /**

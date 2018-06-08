@@ -9,9 +9,12 @@ import android.widget.TextView;
 
 import com.example.ruiyonghui.quarter_time.R;
 import com.example.ruiyonghui.quarter_time.bean.FavoritesBean;
+import com.example.ruiyonghui.quarter_time.untils.CustomerView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
+
+import cn.jzvd.JZVideoPlayerStandard;
 
 /**
  * Created by Administrator on 2018/6/5,0005.
@@ -44,7 +47,7 @@ public class CollectAdapter extends RecyclerView.Adapter<CollectAdapter.ViewHold
         holder.tv2.setText(list.get(position).getCreateTime());
         holder.tv3.setText(list.get(position).getLatitude());
         holder.tou.setImageURI(list.get(position).getUser().getIcon());
-        holder.img.setImageURI(list.get(position).getCover());
+        holder.player.setUp(list.get(position).getVideoUrl(), JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, list.get(position).getWid());
     }
 
     @Override
@@ -57,14 +60,16 @@ public class CollectAdapter extends RecyclerView.Adapter<CollectAdapter.ViewHold
         TextView tv1;
         TextView tv2;
         TextView tv3;
-        SimpleDraweeView img;
+        JZVideoPlayerStandard player;
+        CustomerView customs;
         public ViewHolder(View itemView) {
             super(itemView);
             tou = itemView.findViewById(R.id.tou_collect);
             tv1 = itemView.findViewById(R.id.tv1_collect);
             tv2 = itemView.findViewById(R.id.tv2_collect);
             tv3 = itemView.findViewById(R.id.tv3_collect);
-            img = itemView.findViewById(R.id.img_collect);
+            player = itemView.findViewById(R.id.player_collect);
+            customs = itemView.findViewById(R.id.customs);
         }
     }
 }

@@ -9,6 +9,7 @@ import com.example.ruiyonghui.quarter_time.module.HttpModule;
 import com.example.ruiyonghui.quarter_time.ui.collect.CollectActivity;
 import com.example.ruiyonghui.quarter_time.ui.recommend.fragment.GuanZhuFragment;
 import com.example.ruiyonghui.quarter_time.ui.recommend.fragment.ReMenFragment;
+import com.example.ruiyonghui.quarter_time.ui.video.VideoOneFragment;
 
 import dagger.Component;
 
@@ -31,6 +32,5 @@ public interface HttpComponent {
 
     void inject(FragmentActivity activity);
 
-    void inject(Fragment fragment);
-
+    void inject(VideoOneFragment videoOneFragment);
 }
