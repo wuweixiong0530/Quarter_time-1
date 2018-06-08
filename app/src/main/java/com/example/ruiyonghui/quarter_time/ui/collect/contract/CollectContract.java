@@ -15,7 +15,7 @@ public interface CollectContract {
 
     interface Presenter extends BaseContract.BasePresenter<View> {
         //获取收藏
-        void getFavorites(String uid, String token, String android, String s);
+        void getFavorites(String uid, String token);
 
     }
 }

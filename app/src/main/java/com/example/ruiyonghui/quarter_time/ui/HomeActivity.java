@@ -66,9 +66,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 .setTabPadding(4, 6, 10)
                 .setChangeColor(Color.BLUE, Color.DKGRAY)
                 .setImgSize(50, 50)//图片大小
-                .addTabItem("推荐", R.drawable.tui_yes,R.drawable.tui_no, RecommendFragment.class)
-                .addTabItem("段子", R.drawable.duanzi_yes,R.drawable.duanzi_no, DuanZiFragment.class)
-                .addTabItem("视频", R.drawable.shipin_yes,R.drawable.shipin_no, VideoFragment.class)
+                .addTabItem("推荐", R.drawable.tui_yes, R.drawable.tui_no, RecommendFragment.class)
+                .addTabItem("段子", R.drawable.duanzi_yes, R.drawable.duanzi_no, DuanZiFragment.class)
+                .addTabItem("视频", R.drawable.shipin_yes, R.drawable.shipin_no, VideoFragment.class)
                 .isShowDivider(false);
         //侧拉设置
         slidMenu();
@@ -76,11 +76,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         bottomTabBar.setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
             @Override
             public void onTabChange(int position, String name) {
-                if (name.equals("推荐")){
+                if (name.equals("推荐")) {
                     homeText.setText("推荐");
-                }else if (name.equals("段子")){
+                } else if (name.equals("段子")) {
                     homeText.setText("段子");
-                }else if (name.equals("视频")){
+                } else if (name.equals("视频")) {
                     homeText.setText("视频");
                 }
             }
@@ -105,7 +105,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         menu.setMenu(leftView);
         ll_login = leftView.findViewById(R.id.ll_login);
         imageTouXiang = leftView.findViewById(R.id.my_image_view);
-        name=leftView.findViewById( R.id.name );
+        name = leftView.findViewById(R.id.name);
         my_attention = leftView.findViewById(R.id.my_attention);//关注
         my_collect = leftView.findViewById(R.id.my_collect);//收藏
         search_friend = leftView.findViewById(R.id.search_friend);//搜索好友
@@ -116,15 +116,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         my_collect.setOnClickListener(this);
         ll_login.setOnClickListener(this);
         setting.setOnClickListener(this);
-        my_attention.setOnClickListener( this );
+        my_attention.setOnClickListener(this);
 
-        String uid = (String) SharedPreferencesUtils.getParam( HomeActivity.this, "uid", "" );
-        String username = (String) SharedPreferencesUtils.getParam( HomeActivity.this, "name", "" );
-        String iconurl = (String) SharedPreferencesUtils.getParam( HomeActivity.this, "iconurl", "" );
-        if ("-1".equals( uid ))
-        {
+        String uid = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "uid", "");
+        String username = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "name", "");
+        String iconurl = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "iconurl", "");
+        if ("-1".equals(uid)) {
 
-        }else{
+        } else {
             imageTouXiang.setImageURI(iconurl);
             name.setText(username);
         }
@@ -153,25 +152,20 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 } else {
                     startActivity(new Intent(this, LoginHomeActivity.class));
                 }
-
                 break;
+                //我的收藏
             case R.id.my_collect:
                 startActivity(new Intent(this, CollectActivity.class));
                 break;
             //侧拉我的关注
             case R.id.my_attention:
-
+                startActivity(new Intent(this, FollowUsersActivity.class));
                 break;
             //设置
             case R.id.setting:
                 startActivity(new Intent(this, SettingActivity.class));
+                break;
 
-                startActivity(new Intent(this,FollowUsersActivity.class));
-                break;
-                //侧拉我的收藏
-            case R.id.my_collect:
-                startActivity(new Intent(this,CollectActivity.class));
-                break;
         }
     }
 }

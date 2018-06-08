@@ -25,7 +25,7 @@ public class CollectPresenter extends BasePrensenter<CollectContract.View> imple
         this.collectApi = collectApi;
     }
     @Override
-    public void getFavorites(String uid, String token, String android, String s) {
+    public void getFavorites(String uid, String token) {
         collectApi.getFavorites(uid,token)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
