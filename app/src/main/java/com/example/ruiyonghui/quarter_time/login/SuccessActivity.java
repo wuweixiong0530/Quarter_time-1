@@ -52,6 +52,7 @@ public class SuccessActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.regists:
+                startActivity( new Intent( this,LoginActivity.class ) );
                 break;
             case R.id.simpledrawee:
                 break;

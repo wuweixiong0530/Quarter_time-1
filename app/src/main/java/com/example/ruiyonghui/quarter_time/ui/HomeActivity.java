@@ -116,7 +116,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             imageTouXiang.setImageURI(iconurl);
             name.setText(username);
         }
-
     }
 
     private void intiView() {

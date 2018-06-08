@@ -85,6 +85,7 @@ public class FollowUsersActivity extends BaseActivity<FollowUsersPresenter> impl
                 finish();
                 break;
             case R.id.delete_collect:
+
                 break;
             case R.id.recycleView_collect:
 
