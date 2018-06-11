@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,7 +14,6 @@ import android.widget.Toast;
 
 import com.example.ruiyonghui.quarter_time.R;
 import com.example.ruiyonghui.quarter_time.fragment.DuanZiFragment;
-import com.example.ruiyonghui.quarter_time.login.LoginActivity;
 import com.example.ruiyonghui.quarter_time.login.LoginHomeActivity;
 import com.example.ruiyonghui.quarter_time.ui.followusers.FollowUsersActivity;
 import com.example.ruiyonghui.quarter_time.ui.recommend.RecommendFragment;

@@ -19,7 +19,6 @@ import java.util.List;
 
 import cn.jzvd.JZVideoPlayerStandard;
 
-import static com.example.ruiyonghui.quarter_time.application.MyApplication.getProxy;
 
 
 /**
@@ -51,11 +50,8 @@ public class HotVideoAdapter extends RecyclerView.Adapter<HotVideoAdapter.ViewHo
         holder.tv2.setText(list.get(position).getCreateTime());
         holder.tv3.setText(list.get(position).getWorkDesc());
         holder.tou.setImageURI(list.get(position).getUser().getIcon());
-        HttpProxyCacheServer proxy = getProxy(context);
-        //将网路视频路径格式转为ProxyUrl   视频路径存储在SharedPreferences里
-        String proxyUrl = proxy.getProxyUrl(list.get(position).getVideoUrl());
         //将视频路径换成proxy.getProxyUrl的路径
-        holder.player.setUp(proxyUrl, JZVideoPlayerStandard.VIDEO_IMAGE_DISPLAY_TYPE_FILL_SCROP, list.get(position).getWid());
+        holder.player.setUp(list.get(position).getVideoUrl(), JZVideoPlayerStandard.VIDEO_IMAGE_DISPLAY_TYPE_FILL_SCROP, list.get(position).getWid());
 
 
     }

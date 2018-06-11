@@ -64,10 +64,8 @@ public class LoginHomeActivity extends AppCompatActivity {
 
                 break;
             case R.id.qq:
-
                 UMShareAPI mShareAPI = UMShareAPI.get(LoginHomeActivity.this);
                 mShareAPI.getPlatformInfo(LoginHomeActivity.this, SHARE_MEDIA.QQ, umAuthListener);
-
                 break;
             case R.id.login_t:
                 intent = new Intent(this,LoginActivity.class);

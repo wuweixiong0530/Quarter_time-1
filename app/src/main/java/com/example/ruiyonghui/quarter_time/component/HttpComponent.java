@@ -21,7 +21,6 @@ public interface HttpComponent {
 
     ////    void inject(HomeActivity homeActivity);
 //    void inject(RecommendFragment recommendFragment);
-//    void inject(DuanZiFragment duanZiFragment);
 //    void inject(VideoFragment videoFragment);
     void inject(LoginActivity loginActivity);
 

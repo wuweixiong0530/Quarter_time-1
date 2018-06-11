@@ -1,5 +1,6 @@
 package com.example.ruiyonghui.quarter_time.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ruiyonghui.quarter_time.R;
+import com.example.ruiyonghui.quarter_time.login.LoginHomeActivity;
 import com.example.ruiyonghui.quarter_time.untils.SharedPreferencesUtils;
 
 import butterknife.BindView;
@@ -41,23 +43,17 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 finish();
                 break;
             case R.id.btn_tui:
-
-                SharedPreferencesUtils.setParam(this, "uid", "");
-                SharedPreferencesUtils.setParam(this, "password", "");
-
-                Object uid = SharedPreferencesUtils.getParam(this, "uid", "");
-                Object password = SharedPreferencesUtils.getParam(this, "password", "");
-
-                if (TextUtils.isEmpty((CharSequence) uid) && TextUtils.isEmpty((CharSequence) password)) {
-                    Toast.makeText(this, "退出成功", Toast.LENGTH_SHORT).show();
-                    finish();
-                } else {
-                    Toast.makeText(this, "退出失败", Toast.LENGTH_SHORT).show();
-
-                }
-
+                //清空SharedPreferences
+                SharedPreferencesUtils.clear(SettingActivity.this);
+                //回到登录页面
+                Intent intent = new Intent(SettingActivity.this, HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                SettingActivity.this.finish();
                 break;
             default:
+
+
                 break;
         }
 

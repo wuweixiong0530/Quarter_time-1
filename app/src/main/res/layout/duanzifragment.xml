@@ -4,4 +4,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="11111111"
+
+    />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+        android:id="@+id/xrl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView></com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>
