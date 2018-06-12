@@ -4,6 +4,10 @@ import com.example.ruiyonghui.quarter_time.bean.GuanZhuBean;
 import com.example.ruiyonghui.quarter_time.net.Api;
 import com.example.ruiyonghui.quarter_time.net.CollectApi;
 import com.example.ruiyonghui.quarter_time.net.CollentApiService;
+import com.example.ruiyonghui.quarter_time.net.DianzanApi;
+import com.example.ruiyonghui.quarter_time.net.DianzanApiService;
+import com.example.ruiyonghui.quarter_time.net.DuanziApi;
+import com.example.ruiyonghui.quarter_time.net.DuanziApiService;
 import com.example.ruiyonghui.quarter_time.net.FollowUsersApi;
 import com.example.ruiyonghui.quarter_time.net.FollowUsersApiService;
 import com.example.ruiyonghui.quarter_time.net.GuanZhuApi;
@@ -12,6 +16,8 @@ import com.example.ruiyonghui.quarter_time.net.HotVideoService;
 import com.example.ruiyonghui.quarter_time.net.HtoVideoApi;
 import com.example.ruiyonghui.quarter_time.net.LoginApi;
 import com.example.ruiyonghui.quarter_time.net.LoginApiService;
+import com.example.ruiyonghui.quarter_time.net.PinglunApi;
+import com.example.ruiyonghui.quarter_time.net.PinglunApiService;
 import com.example.ruiyonghui.quarter_time.net.ReMenApi;
 import com.example.ruiyonghui.quarter_time.net.ReMenService;
 import com.example.ruiyonghui.quarter_time.net.RegisterApi;
@@ -113,4 +119,43 @@ public class HttpModule {
         return VideoOneApi.getVideoOne(videoOneService);
     }
 
+
+
+    @Provides
+    DuanziApi provideDuanApi(OkHttpClient.Builder builder) {
+        builder.addInterceptor(new MyInterceptor());
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASEURL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+        DuanziApiService duanziApiService = retrofit.create(DuanziApiService.class);
+        return DuanziApi.getDuanziApi(duanziApiService);
+    }
+
+    @Provides
+    DianzanApi provideDianzan(OkHttpClient.Builder builder) {
+        builder.addInterceptor(new MyInterceptor());
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASEURL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+        DianzanApiService dianzanApiService = retrofit.create(DianzanApiService.class);
+        return DianzanApi.getDianzan(dianzanApiService);
+    }
+    @Provides
+    PinglunApi providepinglun(OkHttpClient.Builder builder) {
+        builder.addInterceptor(new MyInterceptor());
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASEURL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+        PinglunApiService pinglunApiService = retrofit.create(PinglunApiService.class);
+        return PinglunApi.getDianzan(pinglunApiService);
+    }
 }

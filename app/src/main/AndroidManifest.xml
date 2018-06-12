@@ -58,6 +58,19 @@
             android:name="com.tencent.connect.common.AssistActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5ad95143b27b0a596a00000e"/>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Channel ID"/>
+
+        <activity
+            android:name=".ui.duanzi.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
 
     </application>
 

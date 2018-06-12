@@ -3,6 +3,7 @@ package com.example.ruiyonghui.quarter_time.component;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
+import com.example.ruiyonghui.quarter_time.fragment.DuanZiFragment;
 import com.example.ruiyonghui.quarter_time.login.LoginActivity;
 import com.example.ruiyonghui.quarter_time.login.RegistActivity;
 import com.example.ruiyonghui.quarter_time.module.HttpModule;
@@ -23,7 +24,7 @@ public interface HttpComponent {
 //    void inject(RecommendFragment recommendFragment);
 //    void inject(VideoFragment videoFragment);
     void inject(LoginActivity loginActivity);
-
+    void inject(DuanZiFragment duanziFragment);
     void inject(RegistActivity registActivity);
     void inject(FollowUsersActivity followUsersActivity);
     void inject(ReMenFragment reMenFragment);

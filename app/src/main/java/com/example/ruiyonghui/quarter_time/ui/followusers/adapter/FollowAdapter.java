@@ -28,6 +28,7 @@ public class FollowAdapter extends RecyclerView.Adapter<FollowAdapter.ViewHolder
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ViewHolder holder;
         View view = View.inflate(context,R.layout.followusers_item,null);
+       // ((RecyclerView) view).getAdapter().notifyItemRangeChanged(0,followUsersBean.getData().size());
         holder = new FollowAdapter.ViewHolder(view);
         return holder;
     }
@@ -38,6 +39,7 @@ public class FollowAdapter extends RecyclerView.Adapter<FollowAdapter.ViewHolder
         holder.tou_followusers.setImageURI( list.get(position).getIcon() );
         holder.followusers_name.setText( list.get( position ).getUsername() );
         holder.followusers_time.setText( list.get( position ).getCreatetime() );
+
     }
 
     @Override

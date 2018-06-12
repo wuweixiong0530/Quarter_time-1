@@ -62,6 +62,7 @@ public class FollowUsersActivity extends BaseActivity<FollowUsersPresenter> impl
             mRecycleViewCollect.setAdapter(followAdapter);
             mRecycleViewCollect.setLayoutManager(new LinearLayoutManager(FollowUsersActivity.this));
             mRecycleViewCollect.addItemDecoration(new DividerItemDecoration( this,DividerItemDecoration.VERTICAL ));
+
         }
     }
 
