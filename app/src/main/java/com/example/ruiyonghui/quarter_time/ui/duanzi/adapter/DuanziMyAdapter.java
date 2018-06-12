@@ -96,7 +96,7 @@ public class DuanziMyAdapter extends RecyclerView.Adapter<DuanziMyAdapter.ViewHo
 
         final DuanziBean.DataBean dataBean = list.get(position);
 
-        String imgUrls = (String) dataBean.getImgUrls();
+        String imgUrls = (String) dataBean.getUser().getIcon();
         String imgUrl = "";
         if (!TextUtils.isEmpty(imgUrls)) {
             imgUrl = imgUrls.split("\\|")[0];
