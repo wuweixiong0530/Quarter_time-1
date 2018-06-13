@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.ruiyonghui.quarter_time.R;
 import com.example.ruiyonghui.quarter_time.bean.DuanziBean;
+import com.example.ruiyonghui.quarter_time.untils.ShareUtil;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
@@ -23,6 +24,7 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMWeb;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -32,6 +34,7 @@ import java.util.List;
 
 public class DuanziMyAdapter extends RecyclerView.Adapter<DuanziMyAdapter.ViewHolder> {
     private static final String TAG = "DuanziMyAdapter";
+    boolean flag;
     List<DuanziBean.DataBean> list;
     private Context context;
     private UMShareListener shareListener = new UMShareListener() {
@@ -74,6 +77,7 @@ public class DuanziMyAdapter extends RecyclerView.Adapter<DuanziMyAdapter.ViewHo
         }
     };
     OnItemClickListener mOnItemClickListener;
+    private String imgUrl;
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.mOnItemClickListener = onItemClickListener;
@@ -97,11 +101,11 @@ public class DuanziMyAdapter extends RecyclerView.Adapter<DuanziMyAdapter.ViewHo
         final DuanziBean.DataBean dataBean = list.get(position);
 
         String imgUrls = (String) dataBean.getUser().getIcon();
-        String imgUrl = "";
+        imgUrl = "";
         if (!TextUtils.isEmpty(imgUrls)) {
             imgUrl = imgUrls.split("\\|")[0];
         }
-        holder.iv.setImageURI(imgUrl);
+        holder.iv.setImageURI( imgUrl );
         holder.tvName.setText(dataBean.getUser().getNickname() + "");
         holder.tvTime.setText(dataBean.getCreateTime());
         holder.duanzitext.setText(dataBean.getContent());
@@ -117,10 +121,9 @@ public class DuanziMyAdapter extends RecyclerView.Adapter<DuanziMyAdapter.ViewHo
 //                    Fenxiang fenxiang = new Fenxiang(context);
 //                    fenxiang.getonClickShare();
                     //分享
-                    UMImage image = new UMImage(context, "http://img.zcool" +
-                            ".cn/community/01d881579dc3620000018c1b430c4b.JPG@3000w_1l_2o_100sh.jpg");//网络图片
-
-                    new ShareAction((Activity) context).withMedia(new UMWeb("http://www.baidu.com")).setDisplayList
+//                    ShareUtil.shareWeb( context,list.get( position ).getContent(),list.get( position ).getCreateTime(),"我在一刻钟发现一个好的商品,赶紧来看看吧!",list.get( position ).getUser().getIcon().split("\\|")[0],R.mipmap.ic_launcher);
+                    UMImage image = new UMImage(context,imgUrl);//网络图片
+                    new ShareAction((Activity) context).withMedia(new UMWeb("https://www.zhaoapi.cn/quarter/getJokeDetail?jid="+dataBean.getJid()+"&source=android&appVersion=101")).setDisplayList
                             (SHARE_MEDIA.WEIXIN, SHARE_MEDIA
                                             .WEIXIN_CIRCLE,
                                     SHARE_MEDIA.QQ,
@@ -137,6 +140,12 @@ public class DuanziMyAdapter extends RecyclerView.Adapter<DuanziMyAdapter.ViewHo
                 public void onClick(View view) {
                     //    Toast.makeText(context, "点赞", Toast.LENGTH_SHORT).show();
                     mOnItemClickListener.onClick(dataBean.getJid(), "点赞");
+                        if(flag){
+                            holder.image_report.setImageResource(R.drawable.dianzan);
+                        }else{
+                            holder.image_report.setImageResource(R.drawable.zan);
+                        }
+                        flag = !flag;
                 }
             });
 

@@ -20,6 +20,7 @@ import com.example.ruiyonghui.quarter_time.ui.recommend.RecommendFragment;
 import com.example.ruiyonghui.quarter_time.fragment.VideoFragment;
 import com.example.ruiyonghui.quarter_time.ui.collect.CollectActivity;
 import com.example.ruiyonghui.quarter_time.untils.SharedPreferencesUtils;
+import com.example.ruiyonghui.quarter_time.untils.UiUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hjm.bottomtabbar.BottomTabBar;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -35,6 +36,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     TextView name;
     ImageView edit;
     BottomTabBar bottomTabBar;
+    private int theme = 0;
 
     SlidingMenu menu;
     private SimpleDraweeView imageTouXiang;
@@ -47,10 +49,23 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private RelativeLayout setting;
     private View leftView;
     private LinearLayout ll_login;
+    private SimpleDraweeView img_ye;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //切换主题必须放在onCreate()之前
+
+        if (savedInstanceState == null) {
+//                如果么有
+            theme = UiUtils.getAppTheme(HomeActivity.this);
+        }
+        else {
+            theme = savedInstanceState.getInt("theme");
+        }
+//        可以设置主题的 方法 在oncreate之前调用
+        setTheme(theme);
+
         setContentView(R.layout.activity_home);
 
         intiView();
@@ -111,10 +126,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         night_mode = leftView.findViewById(R.id.night_mode);//夜间模式
         my_works = leftView.findViewById(R.id.my_works);//我的作品
         setting = leftView.findViewById(R.id.setting);//设置
+        img_ye = leftView.findViewById( R.id.img_ye );
         my_collect.setOnClickListener(this);
         ll_login.setOnClickListener(this);
         setting.setOnClickListener(this);
         my_attention.setOnClickListener(this);
+        night_mode.setOnClickListener( this );
 
         String uid = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "uid", "");
         String username = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "name", "");
@@ -159,11 +176,28 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.my_attention:
                 startActivity(new Intent(this, FollowUsersActivity.class));
                 break;
+            case R.id.night_mode:
+                UiUtils.switchAppTheme(HomeActivity.this);
+                load();
+                break;
             //设置
             case R.id.setting:
                 startActivity(new Intent(this, SettingActivity.class));
                 break;
 
         }
+    }
+    //    切换之间的动画
+    public void load() {
+
+        Intent intent = getIntent();
+
+        overridePendingTransition(R.anim.in, R.anim.out);//进入动画
+
+        finish();
+
+        overridePendingTransition(R.anim.in, R.anim.out);
+        startActivity(intent);
+
     }
 }
