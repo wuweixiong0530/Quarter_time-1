@@ -2,6 +2,8 @@ package com.example.ruiyonghui.quarter_time.bean;
 
 import java.util.List;
 
+
+
 /**
  * Created by Administrator on 2018/6/4,0004.
  * 广告bean类
